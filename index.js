@@ -1,4 +1,4 @@
-// codigo para acessar
+// código para acessar
 const codigo = "mel";
 
 document.getElementById("checkcodigo").addEventListener("click", () => {
@@ -16,7 +16,7 @@ document.getElementById("checkcodigo").addEventListener("click", () => {
     }
 });
 
-//form
+// formulário
 document.getElementById('form').addEventListener('submit', async (event) => {
     event.preventDefault();
 
@@ -40,26 +40,29 @@ document.getElementById('form').addEventListener('submit', async (event) => {
 
     const resultado = document.getElementById('resultado');
     try {
-        const response = await fetch('/buscar-codigo', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ frase })
-        });
-
+        // Buscando o arquivo JSON diretamente do GitHub
+        const response = await fetch('https://raw.githubusercontent.com/MelisaAepio>/Teste/dados.json');
         const data = await response.json();
         console.log("Resposta do servidor:", data);
 
-        resultado.innerText = `Código: ${data.codigo}`;
-        resultado.classList.add('visible'); // Adiciona a classe visible
+        // Procurar pelo código na lista de dados
+        const itemEncontrado = data.find(item => item.frase === frase);
 
-         // Exibir a frase concatenada
-         const fraseEl = document.getElementById('frase');
-         fraseEl.innerText = `Opções Selecionadas: ${frase}`;
-         fraseEl.style.display = 'block';
+        if (itemEncontrado) {
+            resultado.innerText = `Código: ${itemEncontrado.codigo}`;
+        } else {
+            resultado.innerText = 'Código não encontrado.';
+        }
+        resultado.classList.add('visible');
+
+        // Exibir a frase concatenada
+        const fraseEl = document.getElementById('frase');
+        fraseEl.innerText = `Opções Selecionadas: ${frase}`;
+        fraseEl.style.display = 'block';
 
     } catch (error) {
-        resultado.innerText = 'Erro ao buscar o código.';
-        resultado.classList.add('visible'); // Mostra o erro com o mesmo estilo
+        resultado.innerText = 'Erro ao buscar os dados.';
+        resultado.classList.add('visible');
         console.error("Erro:", error);
     }
 });
