@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/index.css">
+    <title>Gerar Código</title>
+</head>
+<body>
+    <header>
+        <img src="./image/logo.png" alt="Logo" id="logo"> <!-- Logo da empresa -->
+    </header>
+
+    <h1>Gerador de Código </h1>
+
+   <!-- Seção de autenticação -->
+    <div id="auth">
+        <label for="codigo">Digite o código para acessar:</label>
+        <input type="text" id="codigo" placeholder="Código" required>
+        <button id="checkcodigo">Entrar</button>
+        <p id="authMessage">Código incorreto. Tente novamente.</p>
+    </div>
+
+    <form id="form" style="display: none;">
+        <label for="tipo">Tipo:</label>
+        <select id="tipo" required>
+            <option value="" disabled selected>Selecione</option>
+            <option value="MEDIDOR DIAFRAGMA">Diafragma</option>
+        </select>
+
+        <label for="modelo">Modelo:</label>
+        <select id="modelo" required>
+            <option value="" disabled selected>Selecione</option>
+            <option value="MECÂNICO">Mecânico</option>
+            <option value="SMART">Smart</option>
+            <!--<option value="MECÂNICO TECHEM">Mecânico Techem</option>-->
+        </select>
+
+        <label for="designacao">Designação:</label>
+        <select id="designacao" required>
+            <option value="" disabled selected>Selecione</option>
+            <option value="G1.0">G1</option>
+            <option value="G1.6">G1.6</option>
+            <option value="G2.5">G2.5</option>
+        </select>
+
+        <label for="sensor">Sensor:</label>
+        <select id="sensor" required>
+            <option value="" disabled selected>Selecione</option>
+            <option value="BASE">Base (Sem sensor)</option>
+            <option value="DLA (DISP. LEIT. AEPIO)">DLA (Rádio)</option>
+            <option value="SENSOR REED">Sensor Reed</option>
+            <option value="SENSOR HALL">Sensor Hall</option>
+        </select>
+
+        <label for="pressao">Pressão Máxima:</label>
+        <select id="pressao" required>
+            <option value="" disabled selected>Selecione</option>
+            <option value="50 KPA">50 kPa</option>
+        </select>
+
+        <label for="corpo">Corpo:</label>
+        <select id="corpo" required>
+            <option value="" disabled selected>Selecione</option>
+            <option value="ALUMINIO">Alumínio</option>
+        </select>
+
+        <label for="entrada">Conexão de Entrada:</label>
+        <select id="entrada" required>
+            <option value="" disabled selected>Selecione</option>
+            <option value="ENTRADA 3/8&quot; NPT">3/8" NPT</option>
+            <option value="ENTRADA 3/8&quot; SAE">3/8" SAE</option>
+            <option value="ENTRADA 1/2&quot; SAE">1/2" SAE</option>
+            <option value="ENTRADA 1/2&quot; BSP">1/2" BSP</option>
+            <option value="ENTRADA 3/4&quot; BSP">3/4" BSP</option>
+            <option value="ENTRADA 1&quot; BSP">1" BSP</option>
+            <option value="ENTRADA 1.1/4&quot; BSP">1.1/4" BSP</option>
+            <option value="ENTRADA 3/8&quot; SAE FÊMEA">3/8" SAE FÊMEA</option>
+            <option value="ENTRADA 155MM F3/4 X M1/2">155MM F3/4" X M1/2"</option>
+            <option value="ENTRADA 305MM F3/4 X M1/2">305MM F3/4" X M1/2"</option>
+
+        </select>
+        <label for="saida">Conexão de Saída:</label>
+        <select id="saida" required>
+            <option value="" disabled selected>Selecione</option>
+            <option value="SAÍDA 3/8&quot; SAE">3/8" SAE</option>
+            <option value="SAÍDA 1/2&quot; SAE">1/2" SAE</option>
+            <option value="SAÍDA 1/2&quot; BSP">1/2" BSP</option>
+            <option value="SAÍDA 3/4&quot; BSP">3/4" BSP</option>
+            <option value="SAÍDA 1&quot; BSP">1" BSP</option>
+            <option value="SAÍDA 1.1/4&quot; BSP">1.1/4" BSP</option>
+            <option value="SAÍDA 155MM F3/4 X M1/2">155MM F3/4" X M1/2"</option>
+            <option value="SAÍDA 305MM F3/4 X M1/2">305MM F3/4" X M1/2"</option>
+        </select>
+
+        <label for="valvula">Válvula:</label>
+        <select id="valvula" required>
+            <option value="" disabled selected>Selecione</option>
+            <option value="base">Base (Sem válvula)</option>
+            <option value="ESFERA 90° MACHO X FEMEA 1/2&quot;">Esfera 90° Macho x Fêmea 1/2"</option>
+            <option value="ESFERA MACHO X FEMEA BORBOLETA 1/2&quot;">Esfera Macho x Fêmea Borboleta 1/2"</option>
+
+        </select>
+
+        <button type="submit">Gerar Código</button>
+
+        <p id="resultado"></p>
+        <p id="frase" style="display: none; font-size: 13px; color: #333; text-align: center; justify-content: center; display: flex; align-items: center; margin-top: 30px;"></p>
+
+    </form>
+    
+    <script src="index.js"></script>
+</body>
+</html>
