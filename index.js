@@ -41,7 +41,7 @@ document.getElementById('form').addEventListener('submit', async (event) => {
     const resultado = document.getElementById('resultado');
     try {
         // Buscando o arquivo JSON diretamente do GitHub
-        const response = await fetch('https://raw.githubusercontent.com/MelisaAepio>/Teste/dados.json');
+        const response = await fetch('https://melissaaepio.github.io/Teste/dados.json');
         const data = await response.json();
         console.log("Resposta do servidor:", data);
 
