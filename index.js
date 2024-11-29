@@ -1,5 +1,5 @@
 // código para acessar
-const codigo = "mel";
+const codigo = "aepio";
 
 document.getElementById("checkcodigo").addEventListener("click", () => {
     const inputcodigo = document.getElementById("codigo").value;
